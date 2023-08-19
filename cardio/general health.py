@@ -6,13 +6,13 @@ Created on Thu Aug 17 16:52:35 2023
 """
 
 import pandas as pd
-import numpy as np
-from matplotlib import pyplot as plt
+# import numpy as np
+# from matplotlib import pyplot as plt
 
 df = pd.read_csv(r"C:\Users\Neil Garcia\randomforest\cardio\data.csv")
 #print(df.head())
 
-print(df.Age_Category.unique())
+# print(df.Age_Category.unique())
 
 # drop irrelevant columns
 df.drop(['Exercise', 'Green_Vegetables_Consumption', 'Fruit_Consumption', 'FriedPotato_Consumption'], inplace=True, axis=1)
@@ -22,6 +22,12 @@ df.drop(['Exercise', 'Green_Vegetables_Consumption', 'Fruit_Consumption', 'Fried
 
 
 # convert alpha to numeric
+
+binary_columns = ['Heart_Disease', 'Skin_Cancer', 'Other_Cancer', 'Depression', 'Arthritis', 'Smoking_History']
+
+for column in binary_columns:
+    df[column] = df[column].map({'Yes': 1, 'No': 2})
+
 df.General_Health[df.General_Health == 'Excellent'] = 1
 df.General_Health[df.General_Health == 'Very Good'] = 1.25
 df.General_Health[df.General_Health == 'Good'] = 1.5
@@ -50,26 +56,10 @@ df.Age_Category[df.Age_Category == '65-69'] = 1.75
 df.Age_Category[df.Age_Category == '70-74'] = 1.83
 df.Age_Category[df.Age_Category == '75-79'] = 1.91
 df.Age_Category[df.Age_Category == '80+'] = 2
-
-df.Smoking_History[df.Smoking_History == 'Yes'] = 1
-df.Smoking_History[df.Smoking_History == 'No'] = 2
-
-# df.Exercise[df.Exercise == 'Yes'] = 1
-# df.Exercise[df.Exercise == 'No'] = 2
-df.Heart_Disease[df.Heart_Disease == 'Yes'] = 1
-df.Heart_Disease[df.Heart_Disease == 'No'] = 2
-df.Skin_Cancer[df.Skin_Cancer == 'Yes'] = 1
-df.Skin_Cancer[df.Skin_Cancer == 'No'] = 2
-df.Other_Cancer[df.Other_Cancer == 'Yes'] = 1
-df.Other_Cancer[df.Other_Cancer == 'No'] = 2
-df.Depression[df.Depression == 'Yes'] = 1
-df.Depression[df.Depression == 'No'] = 2
 df.Diabetes[df.Diabetes == 'Yes'] = 1
 df.Diabetes[df.Diabetes == 'No'] = 2
 df.Diabetes[df.Diabetes == 'No, pre-diabetes or borderline diabetes'] = 2
 df.Diabetes[df.Diabetes == 'Yes, but female told only during pregnancy'] = 2
-df.Arthritis[df.Arthritis == 'Yes'] = 1
-df.Arthritis[df.Arthritis == 'No'] = 2
 
 # define depenedent variable
 Y = df['General_Health'].values
@@ -93,10 +83,13 @@ prediction_test = model.predict(X_test)
 
 
 from sklearn import metrics
-print("Accuracy = ", metrics.accuracy_score(Y_test, prediction_test))
+from sklearn.metrics import classification_report
+
+print("\nAccuracy = ", metrics.accuracy_score(Y_test, prediction_test))
+print(classification_report(Y_test, prediction_test)) #y_test and predicted test - x_test
 
 
 feature_list = list(X.columns)
 feature_imp = pd.Series(model.feature_importances_, index=feature_list).sort_values(ascending=False)
-print(feature_imp)
+print(feature_imp, "\n")
 
