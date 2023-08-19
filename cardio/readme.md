@@ -6,3 +6,5 @@ Using a classification algorithm (Random Forest), I will determine how the model
 
 After feeding the model with the data and keeping only the necessary data, there were several things that greatly influenced one's general health.
 The model achieved 95% accuracy in the 80-20 ratio for training and testing, respectfully. The ratio is kept at a level as the data that was used is quality grade.
+
+The model also had a recall value of 1, which tells how the model can be perfect for detecting a person's general health correctly. 
