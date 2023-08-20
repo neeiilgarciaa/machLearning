@@ -3,7 +3,7 @@ Instruction: Extract the zip file for the dataset
 
 In the dataset, many interpretations can be done. 
 
-###1. general health.py
+### 1. general health.py
 The first Python file checks if such lifestyle and their current state can affect the person's General Health.
 Using a classification algorithm (Random Forest), I will determine how the model interprets it.
 
