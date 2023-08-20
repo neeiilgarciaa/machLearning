@@ -13,4 +13,4 @@ The model achieved 95% accuracy in the 80-20 ratio for training and testing, res
 The model also had a recall value of 1, which tells how the model can be perfect for detecting a person's general health correctly. 
 
 ### 2. heart disease.py
-Like the general health method, this time it will check how such a lifestyle affects one's condition.
+Like the general health method, this time it will check how such a lifestyle affects one's condition. Knowing how likely are you having a heart disease.
