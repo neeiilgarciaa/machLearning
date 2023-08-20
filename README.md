@@ -1,2 +1,2 @@
-# machLearning
-This section collectively consolidate all my activities regarding to Machine Learning, together with datasets from Kaggle.
+# Machine Learning
+My collective outputs using machine learning models and evaluate such data.
