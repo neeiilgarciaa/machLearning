@@ -1,7 +1,10 @@
 ## Cardiovascular Diseases Risk Prediction Dataset (The 2021 BRFSS Dataset from CDC)
 Instruction: Extract the zip file for the dataset
 
-In this notebook, I wanted to know if the prognosis and current lifestyle status affect the person's General Health.
+In the dataset, many interpretations can be done. 
+
+###1. general health.py
+The first Python file checks if such lifestyle and their current state can affect the person's General Health.
 Using a classification algorithm (Random Forest), I will determine how the model interprets it.
 
 After feeding the model with the data and keeping only the necessary data, there were several things that greatly influenced one's general health.
