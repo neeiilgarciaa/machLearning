@@ -6,3 +6,4 @@ To tune the algorithm for the dataset, we are going to find the best parameter u
 
 The algorithm will be implemented to classify whether there is an attack or not. By splitting the dataset into 80/20 ratio for training and testing respectfully, the randomized value is to be set at default of 42.
 
+The model will also produce results on which network segments are affected the most by LFI.
