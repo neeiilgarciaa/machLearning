@@ -1,4 +1,4 @@
-My work for THESIS2
+## My work for THESIS2
 
 This work aims to detect if the URI is an LFI attack.
 Our goal is to produce a detection model for LFI using the Random Forest Classifier and evaluate its performance metrics using Accuracy, Precision, Recall, F1-Score, Confusion Matrix, and Gini Importance (Feature Importances)
@@ -17,3 +17,9 @@ In splitting the dataset into 80/20 ratio for training and testing respectfully,
 The model will also produce results on which segments are usually affected the most by LFI.
 
 The comparison with other algorithms was also shown in the notebook and using solely the algorithm at default provides better accuracy compared to other detection algorithms and its efficiency when it comes to time. Deviation was also considered here and remarkably it is close to a value of 0.
+
+## Hypothesis (Expectation)
+The hyperparameter tune value will increase the model's accuracy and have the lowest standard deviation amongst the other algorithms to be used
+
+## Output (Reality)
+The tuned Random Forest is not efficient when it comes to time since it needs to fit based on the parameters however the Tuned and Default Random Forest has the same accuracy score and standard deviation. We can conclude that even at default, the algorithm performs the best without even tweaking the algorithm expecting it will squeeze more performance to the model. 
